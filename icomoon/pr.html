@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.3.1/jquery.min.js">
+    </script>
+    <script>
+        function simulateKeyPress(character) {
+            jQuery.event.trigger({
+                type: 'keypress',
+                which: character.charCodeAt(0)
+            });
+        }
+
+        $(function () {
+            $('body').keypress(function (e) {
+               console.log(e.which);
+            });
+            simulateKeyPress("e");
+        });
+    </script>
+</head>
+
+<body>
+    <input type="text">
+    <button id="dispatchButton" onclick="simulateKeyPress('e')";>Simulate Key </button>
+    <button id="changeValButton">Press to change value </button>
+</body>
+
+</html>
